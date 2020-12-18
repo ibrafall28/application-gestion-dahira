@@ -1,0 +1,31 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Depense{% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ depense.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ depense.description }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ depense.montant }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ depense.date ? depense.date|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('depense_index') }}">back to list</a>
+
+
+{% endblock %}

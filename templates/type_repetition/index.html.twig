@@ -1,0 +1,38 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Commission index{% endblock %}
+
+{% block body %}
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col">libelle</th>
+            <th scope="col">action1</th>
+            <th scope="col">action2</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for type_repetition in type_repetitions %}
+            <tr>
+                <td>{{ type_repetition.libelle }}</td>
+                <td>
+                    <a class= "btn btn-primary"href="{{ path('type_repetition_edit', {'id': type_repetition.id}) }}">edit</a>
+                </td>
+                <td>
+                    <a class= "btn btn-success" href="{{ path('type_repetition_show', {'id': type_repetition.id}) }}">affiche</a>
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class= "btn btn-success" href="{{ path('type_repetition_new') }}">nouveau</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">Formulaire des materiels</div>
+        <div class="card-body">
+            {{ form_start(form) }}
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.libelle) }}</div>
+            </div>
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.typeMateriel) }}</div>
+            </div>
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.commission) }}</div>
+            </div>
+
+            <br>
+            <button class="btn btn-success">{{ button_label|default('enrigistre') }}</button>
+
+        </div>
+
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+    </div>
+</div>
+</div>

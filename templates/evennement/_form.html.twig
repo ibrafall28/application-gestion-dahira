@@ -1,0 +1,24 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">Formulaire des envennements</div>
+        <div class="card-body">
+            {{ form_start(form) }}
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.nom) }}</div>
+            </div>
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.typeeve) }}</div>
+            </div>
+
+            <br>
+            <button class="btn btn-success">{{ button_label|default('enrigistre') }}</button>
+            <a class="btn btn-success" href="{{ path('type_ev_new') }}">nouveau type</a>
+
+        </div>
+
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+    </div>
+</div>
+</div>

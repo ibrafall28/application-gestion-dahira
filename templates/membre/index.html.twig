@@ -1,0 +1,71 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Membre index{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ form_start(form) }}
+
+    <div class="row align-items-center ">
+        <div class="col-md-4"> {{ form_row(form.matricule) }}</div>
+        <div class="col-md-4"> {{ form_row(form.kourel) }}</div>
+        <div class="col-md-4">
+            <button class="btn btn-outline-info">{{ button_label|default('rechercher') }}</button>
+
+        </div>
+
+    </div>
+
+
+    </div>
+
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Matricule</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">telephone</th>
+            <th scope="col">age</th>
+            <th scope="col">action1</th>
+            <th scope="col">action2</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td>{{ membre.matricule }}</td>
+                <td>{{ membre.nom }}</td>
+                <td>{{ membre.prenom }}</td>
+                <td>{{ membre.adresse }}</td>
+                <td>{{ membre.telephone }}</td>
+                <td>{{ membre.age }}</td>
+                <td>
+                    <a class= "btn btn-primary"href="{{ path('membre_edit', {'id': membre.id}) }}">edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('membre_show', {'id': membre.id}) }}">Boloque</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination">
+        {{  knp_pagination_render(membres)}}
+    </div><br>
+    <td> <a class= "btn btn-success"href="{{ path('membre_new') }}">nouveau</a></td>
+    <td> <a class= "btn btn-success"href="{{ path('membre_imprimer') }}">imprimer</a></td>
+{% endblock %}

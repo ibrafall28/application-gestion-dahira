@@ -1,0 +1,12 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Edit Kourel{% endblock %}
+
+{% block body %}
+    <h1>Edit Kourel</h1>
+
+    {{ include('kourel/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('kourel_index') }}">back to list</a>
+
+{% endblock %}

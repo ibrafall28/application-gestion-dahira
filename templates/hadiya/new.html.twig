@@ -1,0 +1,14 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}New Hadiya{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ include('hadiya/_form.html.twig') }}
+
+    <a href="{{ path('membre_liste') }}">back to list</a>
+{% endblock %}

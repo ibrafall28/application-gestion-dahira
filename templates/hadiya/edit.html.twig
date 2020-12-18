@@ -1,0 +1,11 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Edit Hadiya{% endblock %}
+
+{% block body %}
+
+    {{ include('hadiya/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('hadiya_index') }}">back to list</a>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Caisse index{% endblock %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col">numero</th>
+            <th scope="col">solde</th>
+            <th scope="col">date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for caisse in caisses %}
+            <tr>
+                <td>{{ caisse.numero }}</td>
+                <td>{{ caisse.solde }}</td>
+                <td>{{ caisse.date ? caisse.date|date('d-m-Y ') : '' }}</td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

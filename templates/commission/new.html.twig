@@ -1,0 +1,10 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}New Commission{% endblock %}
+
+{% block body %}
+
+    {{ include('commission/_form.html.twig') }}
+
+    <a href="{{ path('commission_index') }}">back to list</a>
+{% endblock %}

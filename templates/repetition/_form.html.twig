@@ -1,0 +1,36 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">Formulaire de palanification</div>
+        <div class="card-body">
+            {{ form_start(form) }}
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.heurdebut) }}</div>
+            </div>
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.heurfin) }}</div>
+            </div>
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.date) }}</div>
+            </div>
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.kourel) }}</div>
+            </div>
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.lieu) }}</div>
+            </div>
+            <div class="row  ">
+                <div class="col md-4"> {{ form_row(form.typere) }}</div>
+            </div>
+
+            <br>
+            <button class="btn btn-success">{{ button_label|default('enrigistre') }}</button>
+
+
+        </div>
+
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+    </div>
+</div>
+</div>

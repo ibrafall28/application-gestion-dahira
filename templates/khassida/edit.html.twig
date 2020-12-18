@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Khassida{% endblock %}
+
+{% block body %}
+    <h1>Edit Khassida</h1>
+
+    {{ include('khassida/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('khassida_index') }}">back to list</a>
+
+{% endblock %}

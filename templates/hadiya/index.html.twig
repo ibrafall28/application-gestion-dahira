@@ -1,0 +1,55 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Hadiya index{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col">montant</th>
+            <th scope="col">date</th>
+            <th scope="col">membre</th>
+            <th scope="col">action1</th>
+            <th scope="col">action2</th>
+            <th scope="col">action3</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for hadiya in hadiyas %}
+            <tr>
+                <td>{{ hadiya.montant }}</td>
+                <td>{{ hadiya.date ? hadiya.date|date('Y-m-d') : '' }}</td>
+                <td>{{ hadiya.membre.telephone }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('hadiya_edit', {'id': hadiya.id}) }}">edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('hadiya_show', {'id': hadiya.id}) }}">affiche</a>
+                </td>
+                <td>
+                    {{ include('hadiya/_delete_form.html.twig') }}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination">
+        {{  knp_pagination_render(hadiyas)}}
+    </div><br>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Edit TypeRepetition{% endblock %}
+
+{% block body %}
+
+    {{ include('type_repetition/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('type_repetition_index') }}">back to list</a>
+
+    {{ include('type_repetition/_delete_form.html.twig') }}
+{% endblock %}

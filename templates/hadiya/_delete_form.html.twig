@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('hadiya_delete', {'id': hadiya.id}) }}" onsubmit="return confirm('vous voulez annuller cet operation?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ hadiya.id) }}">
+    <button class="btn btn-danger">Annuller</button>
+</form>

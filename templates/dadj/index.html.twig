@@ -1,0 +1,33 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Dadj index{% endblock %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col">Nom</th>
+            <th scope="col">kourel</th>
+            <th scope="col">action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dadj in dadjs %}
+            <tr>
+                <td>{{ dadj.nom }}</td>
+                <td>{{ dadj.kourel.libelle }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('dadj_edit', {'id': dadj.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('dadj_new') }}">nouveau</a>
+{% endblock %}

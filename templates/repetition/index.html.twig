@@ -1,0 +1,51 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Repetition index{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">kourel</th>
+            <th scope="col">heure de debut </th>
+            <th scope="col">heure de fin </th>
+            <th scope="col">date</th>
+            <th scope="col">action1</th>
+            <th scope="col">action2</th>
+            <th scope="col">action3</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for repetition in repetitions %}
+            <tr>
+                <td>{{ repetition.kourel.libelle }}</td>
+                <td>{{ repetition.heurdebut ? repetition.heurdebut|date('H:i') : '' }}</td>
+                <td>{{ repetition.heurfin ? repetition.heurfin|date('H:i') : '' }}</td>
+                <td>{{ repetition.date ? repetition.date|date('Y-m-d ') : '' }}</td>
+                <td>    <a class="btn btn-primary" href="{{ path('repetition_edit', {'id': repetition.id}) }}">edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('repetition_show', {'id': repetition.id}) }}">affiche</a>
+                </td>
+                <td>
+                    {{ include('repetition/_delete_form.html.twig') }}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('repetition_new') }}">nouveau</a>
+    <a class="btn btn-success" href="{{ path('type_repetition_new') }}">nouveau type </a>
+
+{% endblock %}

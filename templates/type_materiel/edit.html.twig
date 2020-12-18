@@ -1,0 +1,11 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Edit TypeMateriel{% endblock %}
+
+{% block body %}
+
+    {{ include('type_materiel/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('type_materiel_index') }}">back to list</a>
+
+{% endblock %}

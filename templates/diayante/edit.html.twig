@@ -1,0 +1,13 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Edit Diayante{% endblock %}
+
+{% block body %}
+    <h1>Edit Diayante</h1>
+
+    {{ include('diayante/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('diayante_index') }}">back to list</a>
+
+    {{ include('diayante/_delete_form.html.twig') }}
+{% endblock %}

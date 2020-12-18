@@ -1,0 +1,15 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}New Depense{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ include('depense/_form.html.twig') }}
+
+    <a href="{{ path('depense_index') }}">back to list</a>
+{% endblock %}

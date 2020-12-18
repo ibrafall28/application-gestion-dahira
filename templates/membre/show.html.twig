@@ -1,0 +1,47 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Membre{% endblock %}
+
+{% block body %}
+    <h1>Membre</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ membre.id }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ membre.matricule }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ membre.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ membre.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ membre.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ membre.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ membre.age }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('membre_index') }}">back to list</a>
+
+    <a href="{{ path('membre_edit', {'id': membre.id}) }}">edit</a>
+
+    {{ include('membre/_delete_form.html.twig') }}
+{% endblock %}

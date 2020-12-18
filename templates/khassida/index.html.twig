@@ -1,0 +1,43 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}khassida index{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col">Nom</th>
+            <th scope="col">Aire</th>
+            <th scope="col">action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for khassida in khassidas %}
+            <tr>
+                <td>{{ khassida.nom }}</td>
+                <td>{{ khassida.dadji.nom}}</td>
+                <td>
+                    <a class= "btn btn-primary"href="{{ path('khassida_edit', {'id': khassida.id}) }}">edit</a>
+                </td>
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class= "btn btn-success" href="{{ path('khassida_new') }}">nouveau</a>
+        <a class= "btn btn-primary"href="{{ path('khassida_index') }}">imprimer</a>
+    </td>
+{% endblock %}

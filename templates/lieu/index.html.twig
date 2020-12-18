@@ -1,0 +1,37 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Commission index{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col">Nom</th>
+            <th scope="col">action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for lieu in lieus %}
+            <tr>
+                <td>{{ lieu.nom }}</td>
+                <td>
+                    <a class= "btn btn-primary"href="{{ path('lieu_edit', {'id': lieu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class= "btn btn-success" href="{{ path('lieu_new') }}">nouveau</a>
+{% endblock %}

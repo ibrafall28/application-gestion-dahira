@@ -1,0 +1,31 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}TypeEv index{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_ev in type_evs %}
+            <tr>
+                <td>{{ type_ev.libelle }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('type_ev_edit', {'id': type_ev.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('type_ev_new') }}">nouveau</a>
+{% endblock %}

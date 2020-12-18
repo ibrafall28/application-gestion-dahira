@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Khassida{% endblock %}
+
+{% block body %}
+    <h1>Khassida</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ khassida.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ khassida.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('khassida_index') }}">back to list</a>
+
+    <a href="{{ path('khassida_edit', {'id': khassida.id}) }}">edit</a>
+
+    {{ include('khassida/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Commission index{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col">Nom</th>
+            <th scope="col">action1</th>
+            <th scope="col">action2</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for kourel in kourels %}
+            <tr>
+                <td>{{ kourel.libelle }}</td>
+                <td>
+                    <a class= "btn btn-primary"href="{{ path('kourel_edit', {'id': kourel.id}) }}">edit</a>
+                </td>
+                <td>
+                    <a class= "btn btn-success"href="{{ path('kourel_show', {'id': kourel.id}) }}">affiche</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class= "btn btn-success" href="{{ path('kourel_new') }}">nouveau</a>
+{% endblock %}

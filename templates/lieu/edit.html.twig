@@ -1,0 +1,11 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Edit Lieu{% endblock %}
+
+{% block body %}
+
+    {{ include('lieu/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('lieu_index') }}">back to list</a>
+
+{% endblock %}

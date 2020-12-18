@@ -1,0 +1,10 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}New Kourel{% endblock %}
+
+{% block body %}
+
+    {{ include('kourel/_form.html.twig') }}
+
+    <a href="{{ path('kourel_index') }}">back to list</a>
+{% endblock %}

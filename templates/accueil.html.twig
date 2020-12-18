@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>dsht</title>
+</head>
+<body>
+<center><h3 >dahira sahadatou toulab wa sahadatu mouridina</h3></center>
+<nav class="navbar navbar-dark bg-primary fixed-top">
+    <img src="{{ asset('img/logo.jpg') }}" width="100px" height="60px" align="right">
+
+    <div class="navbar-brand" >DSHT</div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg ">
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="navbar-brand" href="{{path('commission_index')}}">Commission</a>
+                <a class="navbar-brand" href="{{ path('repetition_index') }}">Repetition</a>
+                <a class="navbar-brand" href="{{ path('dadj_index') }}">Dadiou khassida</a>
+                <a class="navbar-brand" href="{{ path('khassida_index') }}">khassida</a>
+                <a class="navbar-brand" href="{{ path('lieu_index') }}">lieu de repetition</a>
+                <a class="navbar-brand" href="{{ path('kourel_index') }}">Kourel</a>
+                <a class="navbar-brand" href="{{ path('evennement_index') }}"> evennement</a>
+                <a class="navbar-brand" href="{{ path('bilan_index') }}">bilan</a>
+                <a class="navbar-brand" href="{{path('app_logout')}}">Déconnexion</a>
+
+            {% endif %}
+            {% if is_granted('ROLE_SECRETAIRE') %}
+
+                <a class="navbar-brand" href="{{path('membre_index')}}">Inscription</a>
+                <a class="navbar-brand" href="{{path('materiel_index')}}">matériaux</a>
+                <a class="navbar-brand" href="{{path('type_materiel_index')}}">type des matériaux</a>
+                <a class="navbar-brand" href="{{path('app_logout')}}">Déconnexion</a>
+
+            {% endif %}
+            {% if is_granted('ROLE_GESTIONNAIRE_DES_DEPENSE') %}
+
+                <a class="navbar-brand" href="{{path('depense_index')}}">Depense</a>
+                <a class="navbar-brand" href="{{path('app_logout')}}">Déconnexion</a>
+
+            {% endif %}
+            {% if is_granted('ROLE_GESTIONNAIRE_HADIYAS') %}
+
+                <a class="navbar-brand" href="{{path('hadiya_index')}}">liste des hadiyas</a>
+                <a class="navbar-brand" href="{{path('diayante_index')}}">liste des diayante</a>
+                <a class="navbar-brand" href="{{path('membre_liste')}}">Hadiyas</a>
+                <a class="navbar-brand" href="{{path('membre_liste')}}">Diayante</a>
+                <a class="navbar-brand" href="{{path('app_logout')}}">Déconnexion</a>
+
+            {% endif %}
+            {% if is_granted('ROLE_CAISSIERE') %}
+
+                <a class="navbar-brand" href="{{path('caisse_index')}}">Caisse</a>
+                <a class="navbar-brand" href="{{path('app_logout')}}">Déconnexion</a>
+
+            {% endif %}
+
+            {% if is_granted('ROLE_COMMISSAIRE_COMPTE') %}
+
+                <a class="navbar-brand" href="{{path('caisse_solde')}}">situation finaciere</a>
+                <a class="navbar-brand" href="{{path('app_logout')}}">Déconnexion</a>
+
+            {% endif %}
+
+
+
+        </nav>
+    </div>
+
+</nav>
+<br><br>
+<div class="container">
+    {% block body %}
+
+    {% endblock %}
+</div>
+
+</body>
+</html>

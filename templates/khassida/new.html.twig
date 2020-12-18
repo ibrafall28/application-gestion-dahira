@@ -1,0 +1,10 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}New Khassida{% endblock %}
+
+{% block body %}
+
+    {{ include('khassida/_form.html.twig') }}
+
+    <a href="{{ path('khassida_index') }}">back to list</a>
+{% endblock %}

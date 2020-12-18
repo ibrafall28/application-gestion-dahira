@@ -1,0 +1,10 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}New TypeRepetition{% endblock %}
+
+{% block body %}
+
+    {{ include('type_repetition/_form.html.twig') }}
+
+    <a href="{{ path('type_repetition_index') }}">back to list</a>
+{% endblock %}

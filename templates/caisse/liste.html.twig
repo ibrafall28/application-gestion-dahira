@@ -1,0 +1,29 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Caisse{% endblock %}
+
+{% block body %}
+<h3>Situaton  finaciere du dahira</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+
+            <th scope="col">somme  hadiya</th>
+            <th scope="col">somme Diayante</th>
+            <th scope="col">solde ciasse</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ sumh}}</td>
+
+
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('caisse_index') }}">back to list</a>
+
+
+{% endblock %}

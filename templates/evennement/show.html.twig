@@ -1,0 +1,60 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>dsht</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h5>dahira sahadatou toulab wa sahadatu mouridina</h5>
+        </div>
+        <div class="col-md-6">
+            <h3 align="center" >Bilan annuelle</h3>
+        </div>
+        <div class="col-md-3">
+            <img src="{{ asset('img/logo.jpg') }}" width="100px" height="60px" align="right">
+
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+
+            <th scope="col">total cotisation hadiya</th>
+            <th scope="col">total cotisation diayante</th>
+            <th scope="col">total depense</th>
+            <th scope="col">Solde caisse</th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>{{ sumh }}</td>
+                <td>{{ sumd}}</td>
+                <td>{{ sumdp }}</td>
+                <td>{{ susolde }}</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <td>
+        <button id="imp" class="btn btn-primary">Imprimer</button>
+    </td>
+</div>
+<script type="text/javascript">
+    document.getElementById("imp").addEventListener("click",function (){
+        this.style.display="none"
+        window.print()
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}TypeMateriel index{% endblock %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Libelle</th>
+            <th scope="col">action </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for type_materiel in type_materiels %}
+            <tr>
+                <td>{{ type_materiel.libelle }}</td>
+
+                <td>
+                    <a class=" btn btn-primary" href="{{ path('type_materiel_edit', {'id': type_materiel.id}) }}">edit</a>
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('type_materiel_new') }}">nouveau</a>
+{% endblock %}

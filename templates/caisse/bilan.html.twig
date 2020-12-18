@@ -1,0 +1,43 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Caisse{% endblock %}
+
+{% block body %}
+<h3 align="center">Bilan annuelle</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+
+            <th scope="col">total cotisation  hadiya</th>
+            <th scope="col">total cotisation Diayante</th>
+            <th scope="col">total depense </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ sumh}}</td>
+                <td>{{ sumd }}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+
+            <th scope="col">somme cotisation</th>
+            <th scope="col">solde ciasse </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ total}}</td>
+            <td>{{ susolde }}</td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+{% endblock %}

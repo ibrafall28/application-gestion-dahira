@@ -1,0 +1,14 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}New Diayante{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ include('diayante/_form.html.twig') }}
+
+    <a href="{{ path('diayante_index') }}">back to list</a>
+{% endblock %}
